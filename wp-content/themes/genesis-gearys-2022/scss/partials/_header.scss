@@ -1,0 +1,188 @@
+/* Site Header
+---------------------------------------------------------------------------- */
+
+.site-header {
+	background-color: $white;
+	box-shadow: 0 0 $box-shadow-blur-radius rgba(0, 0, 0, $box-shadow-opacity);
+	padding: 0;
+
+	@media only screen and (min-width: $width-xl) {
+		// position: sticky;
+		top: 0;
+		z-index: 9999;
+	}
+}
+
+/* Title Area
+--------------------------------------------- */
+
+.title-area {
+	border: 0;
+	clip: rect(0, 0, 0, 0);
+	float: left;
+	height: 1px;
+	overflow: hidden;
+	padding-bottom: ($spacer * 2.5);
+	padding-top: ($spacer * 2.5);
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+
+	.wp-custom-logo {
+		// max-width: 450px;
+		border: 0;
+		clip: rect(0, 0, 0, 0);
+		height: 1px;
+		overflow: hidden;
+		padding-bottom: ($spacer * 0.5);
+		padding-top: ($spacer * 0.5);
+		position: absolute !important;
+		width: 100%;
+		width: 1px;
+		word-wrap: normal !important;
+
+		.custom-logo-link {
+			border: 0;
+			clip: rect(0, 0, 0, 0);
+			height: 1px;
+			overflow: hidden;
+			position: absolute !important;
+			width: 1px;
+			word-wrap: normal !important;
+
+			img {
+				border: 0;
+				clip: rect(0, 0, 0, 0);
+				height: 1px;
+				overflow: hidden;
+				position: absolute !important;
+				width: 1px;
+				word-wrap: normal !important;
+			}
+		}
+
+	}
+}
+
+.site-title {
+	margin-bottom: 0;
+
+	a {
+		color: $black-chocolate;
+		text-decoration: none;
+
+		&:focus,
+		&:hover {
+			color: $primary;
+			text-decoration: none;
+		}
+	}
+}
+
+
+.site-description,
+.wp-custom-logo .site-title {
+	border: 0;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	overflow: hidden;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+
+/* Title Area
+--------------------------------------------- */
+.header-widget-area {
+	align-content: flex-start;
+	align-items: center;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	margin: auto;
+	max-width: $max-width;
+
+	@media only screen and (min-width: $width-md) {
+		flex-flow: row wrap;
+		justify-content: space-between;
+		padding: 0 ($spacer * 1.5);
+
+		section {
+			flex-basis: 32%;
+		}
+	}
+
+	@media only screen and (min-width: $width-lg) {
+		max-height: 115px;
+	}
+
+	@media only screen and (min-width: $width-xl) {
+		max-height: 125px;
+
+	}
+
+
+	// email and phone
+	.widget_custom_html {
+		order: 2;
+		text-align: center;
+
+		@media only screen and (min-width: $width-md) {
+			flex: 1;
+			order: 1;
+			text-align: left;
+		}
+	}
+
+	// logo
+	.widget_media_image {
+		order: 1;
+
+		@media only screen and (min-width: $width-md) {
+			flex: 2;
+			order: 2;
+		}
+
+		a {
+			display: block;
+		}
+
+		img {
+			height: auto;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+
+			@media only screen and (min-width: $width-lg) {
+				max-height: 110px;
+			}
+
+			@media only screen and (min-width: $width-xl) {
+				max-height: 140px;
+			}
+		}
+	}
+
+	.jetpack_widget_social_icons {
+		order: 3;
+		text-align: center;
+
+		@media only screen and (min-width: $width-md) {
+			flex: 1;
+			text-align: right;
+		}
+
+		.jetpack-social-widget-list {
+			margin-bottom: 0;
+		}
+	}
+
+	.widget {
+		margin-bottom: $spacer;
+
+		&:after {
+			clear: none;
+		}
+	}
+}

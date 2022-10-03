@@ -1,0 +1,723 @@
+/* Custom Styles
+-------------------------------------------------- */
+
+/* Buttons
+-------------------------------------------------- */
+body {
+	.site-container {
+
+		/* WordPress Generic Block Buttons */
+		.wp-block-button {
+			.wp-block-button__link {
+				padding: 15px 30px;
+			}
+		}
+
+		/* WordPress Generic Group buttons */
+		.buttons-small {
+			.wp-block-button {
+				.wp-block-button__link {
+					padding: 10px 15px;
+				}
+			}
+		}
+
+
+	}
+}
+
+
+
+
+.wp-block-genesis-blocks-gb-container {
+	&.full-width {
+		margin-left: calc(-100vw / 2 + 100% / 2);
+		margin-right: calc(-100vw / 2 + 100% / 2);
+		max-width: 99vw !important;
+	}
+}
+
+
+/* Animation
+-------------------------------------------------- */
+.animated {
+	animation-duration: 1s;
+	animation-fill-mode: both;
+
+	&.infinite {
+		animation-iteration-count: infinite;
+	}
+
+	&.hinge {
+		animation-duration: 2s;
+	}
+
+	&.bounceIn,
+	&.bounceOut {
+		animation-duration: .75s;
+	}
+
+	&.flipOutX,
+	&.flipOutY {
+		animation-duration: .75s;
+	}
+}
+
+@keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+		visibility: visible;
+	}
+}
+
+.fadeInUp {
+	animation-name: fadeInUp;
+	visibility: hidden;
+}
+
+
+/* Utility
+-------------------------------------------------- */
+.d-flex {
+	display: flex !important;
+}
+
+.flex-stretch {
+	.gb-block-layout-column-inner {
+		align-content: center;
+		align-items: stretch;
+		display: flex;
+		flex-flow: column;
+		height: 100%;
+		justify-content: space-between;
+	}
+}
+
+.align-self-flex-end {
+	align-self: flex-end;
+}
+
+.flex-column {
+	.gb-block-layout-column-inner {
+		display: flex;
+		align-items: stretch;
+		align-content: center;
+		justify-content: center;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		height: 100%;
+	}
+}
+
+.flex-break-lg {
+	&.gb-layout-columns-2 {
+		>.gb-layout-column-wrap.gb-is-responsive-column {
+			grid-template-columns: 1fr;
+			grid-template-areas:
+				"col1"
+				"col2";
+
+			@media only screen and (min-width: $width-lg) {
+				grid-template-areas: "col1 col2";
+				grid-template-columns: 1fr 1fr;
+				grid-gap: 0 4em;
+			}
+
+			.gb-block-layout-column:nth-child(1) {
+				grid-area: col1;
+
+				&.flex-order-xs-2 {
+					grid-area: col2;
+
+					@media only screen and (min-width: $width-lg) {
+						grid-area: col1;
+					}
+				}
+			}
+
+			.gb-block-layout-column:nth-child(2) {
+				grid-area: col2;
+
+				&.flex-order-xs-1 {
+					grid-area: col1;
+
+					@media only screen and (min-width: $width-lg) {
+						grid-area: col2;
+					}
+				}
+			}
+		}
+	}
+}
+
+.h-100 {
+	height: 100%;
+}
+
+/* MISC
+ ------------------------------------- */
+.wp-block-media-text {
+	&.p-0 {
+		.wp-block-media-text__content {
+			padding: 0
+		}
+	}
+}
+
+
+
+
+
+/* Custom Social Icons
+ ------------------------------------- */
+.simple-social-icons {
+	img.social {
+		padding: 3px;
+	}
+}
+
+
+/* Tiny News Grid
+ ------------------------------------- */
+.home {
+	.featuredpost.home-tiny {
+
+		.gb-block-post-grid .is-grid,
+		.gb-block-post-grid .gb-is-grid {
+			justify-content: space-between;
+			row-gap: $spacer;
+
+			article {
+				margin-bottom: 0;
+			}
+		}
+
+		.gb-post-grid-item {
+			align-items: center;
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: flex-start;
+
+			@media only screen and (min-width: $width-md) {
+				// justify-content: space-between;
+			}
+
+			.gb-block-post-grid-image {
+				margin: 0 ($spacer) 0 0;
+				padding: 0;
+
+				a {
+					display: block;
+					height: 60px;
+					width: 60px;
+
+					img {
+						height: 60px;
+						width: 60px;
+					}
+				}
+			}
+
+			header {
+				.gb-block-post-grid-title {
+					font-size: $font-size-lg;
+					margin: 0;
+					padding: 0;
+
+					h3 {
+						font-size: $font-size-lg;
+						margin: 0;
+						padding: 0;
+					}
+				}
+			}
+
+			.gb-block-post-grid-byline {
+				&:empty {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+/* Regular News Grid
+ ------------------------------------- */
+body {
+	.gb-block-post-grid {
+		div.gb-block-post-grid-image {
+			margin-bottom: $spacer * 0.5;
+		}
+
+		header {
+			.gb-block-post-grid-title {
+				font-size: $h3-font-size;
+				margin-bottom: $spacer * 0.5;
+			}
+		}
+	}
+}
+
+
+/* Section overlays
+ ------------------------------------- */
+.torn--top {
+	&:before {
+		background-image: url(images/torn-paper-top.svg);
+		background-position: center top;
+		background-repeat: repeat-x;
+		content: "";
+		display: block;
+		height: 25px;
+		left: 0;
+		pointer-events: none;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 100%;
+		z-index: 2;
+	}
+}
+
+.torn--bottom {
+	&:after {
+		background-image: url(images/torn-paper-bottom.svg);
+		background-position: center bottom;
+		background-repeat: no-repeat;
+		bottom: 0;
+		content: "";
+		display: block;
+		height: 25px;
+		left: 0;
+		pointer-events: none;
+		position: absolute;
+		right: 0;
+		width: 100%;
+		z-index: 2;
+	}
+
+	&.torn--subtle {
+		&:after {
+			background-image: url(images/header-bg-bottom.png);
+			height: 16px;
+			width: 100%;
+		}
+	}
+}
+
+.torn--top-2 {
+	&:before {}
+}
+
+
+/* Service CTAs
+ ------------------------------------- */
+// this is a column
+.row-gap-40 {
+	.gb-block-layout-column-gap-2 {
+		grid-gap: 2em 2em;
+	}
+}
+
+.card--service {
+	height: 100%;
+	margin-bottom: ($spacer * 4);
+	transition: all 500ms ease 0ms;
+	z-index: 1;
+
+	&:hover {
+		box-shadow: 0px 5px 12px 0px rgba(253, 218, 1, 0.4);
+
+		.gb-block-layout-column-inner {
+
+			&:after {
+				color: choose-contrast-color($secondary);
+				height: 50px;
+				left: 50px;
+				line-height: 50px;
+				opacity: 1;
+				top: 55%;
+				width: 50px;
+				z-index: 2;
+			}
+
+			figure {
+				background-color: $primary;
+
+				img {
+					opacity: 0.5;
+				}
+			}
+		}
+
+
+	}
+
+	.gb-block-layout-column-inner {
+		border-radius: 5px;
+		display: flex;
+		flex-flow: column nowrap;
+		height: 100%;
+		justify-content: space-between;
+		position: relative;
+
+		&:after {
+			background-color: $secondary;
+			border-radius: 50%;
+			color: $secondary;
+			content: '\f30b';
+			font-family: $font-family-icons;
+			font-size: $font-size-xl;
+			height: 0;
+			left: -50px;
+			line-height: 50px;
+			opacity: 0;
+			position: absolute;
+			text-align: center;
+			top: 40%;
+			transition: all 500ms ease, color 1s ease;
+			transition: color 1s ease;
+			width: 0;
+			z-index: 0;
+		}
+
+		figure {
+			margin-bottom: 0;
+			position: relative;
+			opacity: 1;
+			transform: scale(1);
+			transition: transform 500ms ease, opacity 500ms ease;
+			// margin-left: calc(-100vw / 2 + 100% / 2);
+			// margin-right: calc(-100vw / 2 + 100% / 2);
+			width: 100%;
+
+			img {
+				width: 100%;
+			}
+
+		}
+
+		h3 {
+			line-height: 1.2;
+			margin-top: 0;
+			padding: ($spacer * 4) ($spacer * 4) 0 ($spacer * 4);
+			transition: all 500ms ease;
+
+			@media only screen and (min-width: $width-md) {
+				padding: ($spacer * 2) ($spacer * 2) 0 ($spacer * 2);
+			}
+
+			a {
+				color: inherit;
+				text-decoration: none;
+
+				&:focus,
+				&:active,
+				&:hover {
+					color: $primary;
+				}
+			}
+		}
+
+		p {
+			padding: 0 ($spacer * 4);
+
+			@media only screen and (min-width: $width-md) {
+				padding: 0 ($spacer * 2);
+			}
+
+			a {
+				color: inherit;
+				text-decoration: none;
+
+				&:focus,
+				&:active,
+				&:hover {
+					color: $primary;
+				}
+			}
+		}
+	}
+
+}
+
+
+/* RIBBONS FROM https://codepen.io/nxworld/pen/oLdoWb */
+// common ribbon styles.
+.ribbon {
+	height: 150px;
+	overflow: hidden;
+	position: absolute;
+	width: 150px;
+
+	&:before,
+	&:after {
+		border: 5px solid darken($secondary, 5%);
+		content: '';
+		display: block;
+		position: absolute;
+		z-index: -1;
+	}
+
+	span {
+		background-color: $secondary;
+		box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+		color: choose-contrast-color($secondary);
+		display: block;
+		font-weight: 600;
+		font-size: $font-size-base;
+		line-height: 1;
+		padding: 16px 0;
+		position: absolute;
+		text-align: center;
+		text-transform: uppercase;
+		width: 225px;
+
+
+	}
+
+	&.ribbon-trade {
+
+		&:before,
+		&:after {
+			border-color: darken($red, 5%);
+		}
+
+		span {
+			background-color: $red;
+			box-shadow: 0 5px 10px rgba($black, .1);
+			color: choose-contrast-color($red);
+		}
+	}
+
+	/* top left*/
+	&.ribbon-top-left {
+		top: -10px;
+		left: -10px;
+
+		&:before,
+		&:after {
+			border-top-color: transparent;
+			border-left-color: transparent;
+		}
+
+		&:before {
+			top: 0;
+			right: 0;
+		}
+
+		&:after {
+			bottom: 0;
+			left: 0;
+		}
+
+		span {
+			right: -25px;
+			top: 30px;
+			transform: rotate(-45deg);
+		}
+
+	}
+
+	/* top right*/
+	&.ribbon-top-right {
+		top: -10px;
+		right: -10px;
+
+		&:before,
+		&:after {
+			border-top-color: transparent;
+			border-right-color: transparent;
+		}
+
+		&:before {
+			top: 0;
+			left: 0;
+		}
+
+		&:after {
+			bottom: 0;
+			right: 0;
+		}
+
+		span {
+			left: -25px;
+			top: 30px;
+			transform: rotate(45deg);
+		}
+	}
+}
+
+
+
+/* ---------------- TABLES --------------- */
+.is-style-stripes.wp-block-table {
+	table {
+		thead {
+			background-color: $black-chocolate;
+			color: $white;
+
+			th {
+				line-height: $line-height-sm;
+				vertical-align: middle;
+			}
+		}
+
+		tbody {
+			tr {
+				&:nth-child(even) {
+					background-color: $gray-100;
+				}
+
+				&:nth-child(odd) {
+					background-color: transparent;
+				}
+			}
+		}
+	}
+
+
+}
+
+
+/* ---------------- CUSTOM UNDERLINE BLOCK --------------- */
+.genesis-custom-block {
+	&.block-title {
+		margin-bottom: 40px;
+	}
+}
+
+.block-title {
+	text-align: center;
+
+	&.text-left {
+		text-align: left;
+
+		p {
+			text-align: left;
+		}
+	}
+
+	&.text-center {
+		text-align: center;
+
+		p {
+			text-align: center;
+		}
+	}
+
+	&.text-right {
+		text-align: right;
+
+		p {
+			text-align: right;
+		}
+	}
+
+	p {
+		color: #367c2b;
+		font-family: Raleway, sans-serif;
+		font-size: $font-size-sm;
+		font-weight: 600;
+		letter-spacing: 1px;
+		line-height: 24px;
+		margin: 0;
+		text-align: center;
+		text-transform: uppercase;
+
+		.has-theme-primary-background-color & {
+			color: #FFF8C9;
+		}
+	}
+
+	h3 {
+		color: #27251F;
+		display: inline-block;
+		font-family: Raleway, sans-serif;
+		font-size: $h3-font-size;
+		font-weight: 500;
+		line-height: 1.2;
+		line-height: 1em;
+		margin: 0;
+		position: relative;
+		text-transform: uppercase;
+		z-index: 1;
+
+		.has-theme-primary-background-color & {
+			color: #f5f0e9;
+		}
+
+		&:after {
+			background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='236' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.8 8.3l16.8-.6L35 7.1l15-.7c2.2-.1 4.5-.3 6.8-.3l10-.2h5.5l10.3.2 15.4.6L129.5 8l15.5.8 15.4.7c9.7.4 19.4.7 29 1.3l8 .5 8.9.7 7.7.7 3.2.3 3.7.5 5.2.6 6.6 1.2.6.1a2.3 2.3 0 002.3-1.6c.2-.6.1-1.3-.2-1.9-.2-.4-.8-1-1.3-1.1l-4.2-.8-4.2-.7A403.3 403.3 0 00212 7.7a2.4 2.4 0 001-2.4c-.2-.6-.6-1.2-1-1.5l-1.1-.5a33 33 0 00-2.6-.4l-2-.3-3.8-.2L195 2l-15.5-.5-15.4-.3L156 1h-24.4L115.8.8C106.1.7 96.2.6 86.4.7H71.8c-5.2 0-10.4 0-15.6.2L45.9 1l-5.9.1-9.4.4-6.2.3c-7.4.5-14.7 1-22 1.7-.5.1-.8.3-1.1.6-.5.4-.8 1-.8 1.6 0 1.3 1 2.5 2.3 2.5' fill='%23000000' fill-rule='evenodd'/%3E%3C/svg%3E");
+			background-position: left bottom;
+			background-repeat: no-repeat;
+			background-size: 60% 100%;
+			bottom: -0.5em;
+			content: "";
+			display: block;
+			// filter: invert(92%) sepia(14%) saturate(4379%) hue-rotate(357deg) brightness(97%) contrast(106%);
+			height: 0.3em;
+			left: 15%;
+			position: absolute;
+			width: 100%;
+			z-index: -1;
+
+			@media only screen and (min-width: $width-lg) {
+				left: 0;
+			}
+		}
+	}
+
+	&.line-primary {
+		h3 {
+			&:after {
+				// filter: invert(37%) sepia(95%) saturate(367%) hue-rotate(65deg) brightness(87%) contrast(87%);
+			}
+		}
+	}
+
+	&.line-chocolate {
+		h3 {
+			&:after {
+				// filter: invert(9%) sepia(9%) saturate(1157%) hue-rotate(8deg) brightness(99%) contrast(86%);
+			}
+		}
+	}
+
+	&.line-forest {
+		h3 {
+			&:after {
+				// filter: invert(19%) sepia(8%) saturate(4867%) hue-rotate(69deg) brightness(92%) contrast(82%);
+			}
+		}
+	}
+
+	&.line-morning {
+		h3 {
+			&:after {
+				// filter: invert(62%) sepia(15%) saturate(37%) hue-rotate(81deg) brightness(92%) contrast(90%);
+			}
+		}
+	}
+
+}
+
+
+
+body {
+
+	.wp-block-image,
+	.wp-block-embed {
+
+		&.alignwide,
+		&.alignfull {
+			margin-bottom: $spacer;
+		}
+	}
+}
