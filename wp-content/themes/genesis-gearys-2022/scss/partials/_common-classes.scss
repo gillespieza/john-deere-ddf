@@ -1,0 +1,211 @@
+/* Common Classes
+---------------------------------------------------------------------------- */
+
+/* Avatar
+--------------------------------------------- */
+
+.avatar {
+	border-radius: 50%;
+	float: left;
+
+	.author-box &,
+	.alignleft & {
+		margin-right: ($spacer * 2);
+	}
+
+	.alignright & {
+		margin-left: ($spacer * 2);
+	}
+
+	.comment & {
+		margin: 0 ($spacer * 1.5) ($spacer * 2) 0;
+	}
+
+}
+
+/* Genesis Post Grid Block
+--------------------------------------------- */
+.gb-block-post-grid {
+	.gb-block-post-grid-byline {
+		color: $primary;
+		text-transform: uppercase;
+	}
+
+	a.gb-block-post-grid-more-link {
+		color: $primary;
+		display: block;
+		font-weight: 600;
+		font-size: $font-size-base;
+		margin: auto;
+		text-align: center;
+
+		&:before {
+			content: "\f138 ";
+			color: $primary;
+			font-family: $font-family-icons;
+			padding-right: $spacer * 0.5;
+		}
+	}
+}
+
+
+/* Genesis
+--------------------------------------------- */
+.after-entry {
+	box-shadow: 0 0 $box-shadow-blur-radius rgba(0, 0, 0, $box-shadow-opacity);
+	margin-bottom: ($spacer * 4);
+	padding: ($spacer * 2) ($spacer * 3);
+
+	@media only screen and (min-width: $width-lg) {
+		padding: ($spacer * 4) ($spacer * 6);
+	}
+
+	.widget {
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.breadcrumb {
+	border-bottom: $border-width $border-style $border-color;
+	margin-bottom: ($spacer * 4);
+	padding-bottom: $spacer;
+
+	.genesis-title-hidden & {
+		margin-top: ($spacer * 4);
+	}
+}
+
+.author-box p:last-child {
+	margin-bottom: 0;
+}
+
+/* Search Form
+--------------------------------------------- */
+
+.search-form {
+	overflow: hidden;
+
+	.entry-content & {
+		margin-bottom: ($spacer * 4);
+		width: 50%;
+	}
+
+}
+
+input[type="submit"] {
+
+	.search-form &,
+	.post-password-form & {
+		margin-top: $spacer;
+	}
+
+	.widget_search & {
+		border: 0;
+		clip: rect(0, 0, 0, 0);
+		height: 1px;
+		margin: -1px;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+	}
+}
+
+
+/* Skip Links
+---------------------------------------------------------------------------- */
+
+.genesis-skip-link {
+	margin: 0;
+
+	.skip-link-hidden {
+		display: none;
+		visibility: hidden;
+	}
+
+	li {
+		height: 0;
+		list-style: none;
+		width: 0;
+	}
+}
+
+
+/* WordPress
+--------------------------------------------- */
+a {
+	&.aligncenter {
+		img {
+			display: block;
+			margin: 0 auto;
+		}
+	}
+
+	&.alignnone {
+		display: inline-block;
+	}
+
+	&.alignleft,
+	&.alignnone,
+	&.alignright {
+		max-width: 100%;
+	}
+}
+
+.alignleft {
+	float: left;
+	text-align: left;
+}
+
+.alignright {
+	float: right;
+	text-align: right;
+}
+
+img.centered,
+.aligncenter,
+.singular-image {
+	display: block;
+	margin: 0 auto ($spacer * 3);
+}
+
+img.alignnone,
+.alignnone {
+	margin-bottom: ($spacer * 1.5);
+}
+
+a.alignleft,
+img.alignleft,
+.wp-caption.alignleft {
+	margin: 0 ($spacer * 2) ($spacer * 2) 0;
+}
+
+a.alignright,
+img.alignright,
+.wp-caption.alignright {
+	margin: 0 0 ($spacer * 2) ($spacer * 2);
+}
+
+figcaption,
+.gallery-caption,
+.wp-caption-text {
+	margin-top: ($spacer * 0.5);
+	margin-bottom: ($spacer);
+	padding-left: ($spacer);
+	padding-right: ($spacer);
+}
+
+.entry-content {
+	p {
+		&.wp-caption-text {
+			margin-bottom: 0;
+		}
+	}
+
+	.wp-audio-shortcode,
+	.wp-playlist,
+	.wp-video {
+		margin: 0 0 ($spacer * 3);
+	}
+}

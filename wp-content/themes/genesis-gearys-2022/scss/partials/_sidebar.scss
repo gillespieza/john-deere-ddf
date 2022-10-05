@@ -1,0 +1,27 @@
+/* Sidebar
+---------------------------------------------------------------------------- */
+.sidebar-primary {
+	padding-top: 30px; // matches entry-title margin-top;
+
+	.widget-title {
+		font-size: $h5-font-size;
+	}
+}
+
+.sidebar {
+
+	p {
+		margin-bottom: ($spacer * 2);
+	}
+
+	.widget {
+		margin-bottom: ($spacer * 4);
+	}
+
+	.widget-title {
+		a {
+			text-decoration: none;
+		}
+	}
+
+}

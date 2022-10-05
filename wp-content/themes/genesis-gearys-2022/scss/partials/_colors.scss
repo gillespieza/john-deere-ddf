@@ -1,0 +1,439 @@
+@use 'sass:color'; // built in color module
+
+$grays: () !default;
+$grays: map-merge(("gray-100": $gray-100,
+		"gray-200": $gray-200,
+		"gray-300": $gray-300,
+		"gray-400": $gray-400,
+		"gray-500": $gray-500,
+		"gray-600": $gray-600,
+		"gray-700": $gray-700,
+		"gray-800": $gray-800,
+		"gray-900": $gray-900),
+	$grays);
+
+$colors: () !default;
+$colors: map-merge(("red": $red,
+		"pink": $pink,
+		"purple": $purple,
+		"deep-purple":$deep-purple,
+		"indigo": $indigo,
+		"blue": $blue,
+		"light-blue": $light-blue,
+		"cyan": $cyan,
+		"teal": $teal,
+		"green": $green,
+		"light-green":$light-green,
+		"lime": $lime,
+		"yellow": $yellow,
+		"amber": $amber,
+		"orange": $orange,
+		"deep-orange":$deep-orange,
+		"brown": $brown,
+		"gold": $gold,
+		"white": $white,
+		"black": $black),
+	$colors);
+
+$utility-colors: () !default;
+$utility-colors: map-merge(("primary": $primary,
+		"secondary": $secondary,
+		"success": $success,
+		"info": $info,
+		"warning": $warning,
+		"danger": $danger,
+		"light": $light,
+		"muted": $gray-700,
+		"dark": $dark),
+	$utility-colors);
+
+// Merge the maps
+$interimcolors: map-merge($colors, $utility-colors);
+$all-colors: map-merge($interimcolors, $grays);
+
+/* Text Colours
+ ---------------------------------------------------------------------------- */
+@each $color,
+$value in $all-colors {
+	.text-#{$color} {
+		// .text-danger, .text-gray-100, .text-red, .text-primary
+		color: $value !important;
+	}
+}
+
+.text {
+	@at-root #{&}-warning {
+		color: $deep-orange;
+	}
+
+	@at-root #{&}-success {
+		color: scale-color($green, $lightness: -32%); // 008838
+	}
+
+	@at-root #{&}-info {
+		color: $blue;
+	}
+}
+
+
+/* Background Colours
+ --------------------------------------------------------------------------- */
+@each $color,
+$value in $all-colors {
+	.bg-#{$color} {
+		// .bg-red, .bg-prinary, .bg-success
+		background: $value;
+	}
+}
+
+.bg {
+	@at-root #{&}-danger {
+		// don't use darken/lighten().
+		background-color: scale-color($danger, $lightness: 94%);
+		color: $danger;
+	}
+
+	@at-root #{&}-warning {
+		background-color: scale-color($warning, $lightness: 90%);
+		color: $deep-orange;
+	}
+
+	@at-root #{&}-success {
+		background-color: scale-color($light-green, $lightness: 90%);
+		color: scale-color($green, $lightness: -35%);
+	}
+
+	@at-root #{&}-info {
+		background-color: scale-color($info, $lightness: 90%);
+		color: scale-color($blue, $lightness: -25%);
+	}
+}
+
+/* ---------------------------------------------------------------------------
+ MAIN COLOURS
+--------------------------------------------------------------------------- */
+body {
+	background-color: transparent;
+	color: $black-chocolate;
+}
+
+
+/* Main Menu
+ --------------------------------------------------------------------------- */
+
+.menu-toggle {
+	background-color: transparent;
+	color: $black-chocolate;
+
+	&:focus,
+	&:hover {
+		background-color: transparent;
+		color: $forest-green;
+	}
+}
+
+// aka, the chevron
+.sub-menu-toggle {
+	background-color: transparent;
+	color: $black-chocolate;
+
+	&:focus,
+	&:hover {
+		background-color: transparent;
+		color: $forest-green;
+	}
+}
+
+/* Footer
+ --------------------------------------------------------------------------- */
+.footer-widgets {
+
+
+	.wrap {
+		.footer-widget-area {
+			color: $lemon;
+
+			.widget-title {
+				color: $secondary;
+			}
+
+			a {
+				color: $white;
+
+				&:hover {
+					color: $lemon;
+				}
+			}
+		}
+	}
+}
+
+.site-footer {
+	background-color: $black-chocolate;
+	color: $lemon;
+
+	a {
+		color: $lemon;
+
+		&:hover {
+			color: $secondary;
+			text-decoration: underline;
+		}
+	}
+}
+
+/* Content
+ --------------------------------------------------------------------------- */
+.entry-content {
+
+	/* Code */
+	code {
+		background-color: $gray-200;
+	}
+
+	/* Sticky */
+	.sticky {
+		background-color: $gray-100;
+	}
+
+}
+
+/* Links */
+a {
+	color: $primary;
+
+	&:focus,
+	&:hover {
+		color: $forest-green;
+	}
+}
+
+/* Sidebar
+ --------------------------------------------------------------------------- */
+.sidebar {
+	.widget-title {
+		a {
+			color: $black-chocolate;
+		}
+	}
+}
+
+
+/* Plugins
+ --------------------------------------------------------------------------- */
+// eNews
+.sidebar {
+	.enews {
+		background-color: $white;
+		padding: ($spacer * 3);
+	}
+}
+
+// Genesis Simple FAQ
+.gs-faq__question {
+	background: transparent;
+	color: $black-chocolate;
+
+	&:focus,
+	&:hover {
+		background: transparent;
+		color: $primary;
+	}
+}
+
+
+/* Misc
+ --------------------------------------------------------------------------- */
+::selection {
+	background-color: $primary;
+	color: choose-contrast-color($primary);
+}
+
+::placeholder {
+	color: $gray-800;
+	opacity: 1;
+}
+
+mark,
+mark.ep-highlight {
+	background-color: $primary;
+	color: choose-contrast-color($primary);
+
+	// elasticpress
+	.autosuggest-list & {
+		background-color: transparent;
+		color: $primary;
+	}
+}
+
+.required {
+	color: $red;
+}
+
+/* Display outline on focus */
+:focus {
+	color: $gray-800;
+	outline: $gray-400 solid 1px;
+}
+
+/* Pagination */
+.archive-pagination {
+	li {
+		a {
+			background-color: $gray-100;
+			color: $gray-800;
+
+			&:focus,
+			&:hover {
+				background-color: $gray-800;
+				color: $gray-100;
+			}
+		}
+
+		&.active {
+			a {
+				background-color: $primary;
+				color: choose-contrast-color($primary);
+			}
+		}
+	}
+}
+
+/* Screen Reader Text */
+.screen-reader-shortcut,
+.screen-reader-text,
+.screen-reader-text span {
+	&:focus {
+		background: $white;
+		color: $gray-800;
+	}
+}
+
+
+/* Buttons */
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.button {
+	background-color: $secondary;
+	color: choose-contrast-color($secondary);
+
+	&:hover {
+		background-color: $primary;
+		color: choose-contrast-color($primary);
+	}
+
+	&:focus {
+		background-color: $forest-green;
+		color: choose-contrast-color($forest-green);
+	}
+
+	&:disabled {
+		background-color: $gray-300;
+		color: $gray-700;
+
+		&:hover {
+			background-color: $gray-400;
+			color: $gray-800;
+		}
+	}
+
+	&.btn-primary {
+		background-color: $primary;
+		color: choose-contrast-color($primary);
+
+		&:focus,
+		&:hover {
+			background-color: $secondary;
+			color: choose-contrast-color($secondary);
+		}
+
+		&:active {
+			background-color: $forest-green;
+			color: choose-contrast-color($forest-green);
+		}
+	}
+
+	&.btn-secondary {
+		background-color: $secondary;
+		color: choose-contrast-color($secondary);
+
+		&:focus,
+		&:hover {
+			background-color: $primary;
+			color: choose-contrast-color($primary);
+		}
+
+		&:active {
+			background-color: $morning-blue;
+			color: choose-contrast-color($morning-blue);
+		}
+	}
+
+	&.btn-black-chocolate {
+		background-color: $black-chocolate;
+		color: choose-contrast-color($black-chocolate);
+
+		&:focus,
+		&:hover {
+			background-color: $morning-blue;
+			color: choose-contrast-color($morning-blue);
+		}
+
+		&:active {
+			background-color: $olive-green;
+			color: choose-contrast-color($olive-green);
+		}
+	}
+
+	&.btn-lemon {
+		background-color: $lemon;
+		color: choose-contrast-color($lemon);
+
+		&:focus,
+		&:hover {
+			background-color: $primary;
+			color: choose-contrast-color($primary);
+		}
+
+		&:active {
+			background-color: $forest-green;
+			color: choose-contrast-color($forest-green);
+		}
+	}
+
+	&.btn-light {
+		background-color: $gray-200;
+		border-color: $gray-400;
+		color: choose-contrast-color($gray-200);
+
+		&:focus,
+		&:hover {
+			background-color: $gray-400;
+			color: choose-contrast-color($gray-400);
+		}
+
+		&:active {
+			background-color: $primary;
+			color: choose-contrast-color($primary);
+		}
+	}
+}
+
+
+
+
+input,
+select,
+textarea {
+	background-color: $white;
+	color: $black-chocolate;
+}
+
+
+/* Slider
+ --------------------------------------------------------------------------- */
+div#n2-ss-3 .n2-style-52a27b9422f615fb2c24656151df03c2-heading {
+	background-color: $secondary !important;
+}
